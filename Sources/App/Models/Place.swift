@@ -23,3 +23,9 @@ extension Place: Content { }
 
 /// Allows `Todo` to be used as a dynamic parameter in route definitions.
 extension Place: Parameter { }
+
+extension Place {
+    var zones: Children<Place, Zone> {
+        return children(\.placeId)
+    }
+}
