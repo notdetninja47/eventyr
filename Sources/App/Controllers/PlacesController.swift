@@ -8,11 +8,9 @@ class PlacesController: RouteCollection {
         route.get   (use: getAll)
         route.get   (Place.parameter, "zones", use: getZones)
         
-        let tokenAuthMiddleware = User.tokenAuthMiddleware()
-        let tokenAuthGroup = route.grouped(tokenAuthMiddleware)
-        tokenAuthGroup.post  (use: create)
-        tokenAuthGroup.put   (Place.parameter, use: update)
-        tokenAuthGroup.delete(Place.parameter, use: delete)
+        route.post  (use: create)
+        route.put   (Place.parameter, use: update)
+        route.delete(Place.parameter, use: delete)
     }
     
     func getAll(_ req: Request) throws -> Future<[Place]> {

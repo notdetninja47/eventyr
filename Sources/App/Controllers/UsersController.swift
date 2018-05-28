@@ -7,7 +7,7 @@ struct UsersController: RouteCollection {
         let usersRoutes = router.grouped("api", "users")
         usersRoutes.post(use: create)
         usersRoutes.get(use: getAll)
-        usersRoutes.get(User.Public.parameter, use: get)
+        usersRoutes.get(User.parameter, use: get)
         usersRoutes.get(User.parameter, "places", use: getPlaces)
         
         let basicAuthMiddleware = User.basicAuthMiddleware(using: BCryptDigest())
@@ -23,12 +23,12 @@ struct UsersController: RouteCollection {
         }
     }
     
-    func getAll(_ req: Request) throws -> Future<[User.Public]> {
-        return User.Public.query(on: req).all()
+    func getAll(_ req: Request) throws -> Future<[User]> {
+        return User.query(on: req).all()
     }
     
-    func get(_ req: Request) throws -> Future<User.Public> {
-        return try req.parameters.next(User.Public.self)
+    func get(_ req: Request) throws -> Future<User> {
+        return try req.parameters.next(User.self)
     }
     
     func getPlaces(_ req: Request) throws -> Future<[Place]> {
@@ -44,5 +44,3 @@ struct UsersController: RouteCollection {
 }
 
 extension User: Parameter {}
-extension User.Public: Parameter {}
-

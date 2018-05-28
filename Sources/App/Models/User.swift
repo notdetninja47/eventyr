@@ -6,34 +6,19 @@ import Authentication
 final class User: Codable {
   var id: UUID?
   var name: String
-  var username: String
+  var email: String
   var password: String
-
-  init(name: String, username: String, password: String) {
+    
+  init(name: String, email: String, password: String) {
     self.name = name
-    self.username = username
+    self.email = email
     self.password = password
-  }
-
-  final class Public: Codable {
-    var id: UUID?
-    var name: String
-    var username: String
-
-    init(name: String, username: String) {
-      self.name = name
-      self.username = username
-    }
   }
 }
 
 extension User: MySQLUUIDModel {}
 extension User: Migration {}
 extension User: Content {}
-extension User.Public: MySQLUUIDModel {
-  static let entity = User.entity
-}
-extension User.Public: Content {}
 
 extension User {
   var places: Children<User, Place> {
@@ -42,7 +27,7 @@ extension User {
 }
 
 extension User: BasicAuthenticatable {
-    static let usernameKey: UsernameKey = \User.username
+    static let usernameKey: UsernameKey = \User.email
     static let passwordKey: PasswordKey = \User.password
 }
 

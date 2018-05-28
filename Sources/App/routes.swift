@@ -12,4 +12,6 @@ public func routes(_ router: Router) throws {
     let arObjectsController = ARObjectsController()
     try router.register(collection: arObjectsController)
     
+    let usersController = UsersController()
+    try router.register(collection: usersController)
 }
