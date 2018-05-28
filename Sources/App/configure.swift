@@ -18,10 +18,10 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
 
     // Configure a SQLite database
     let mysqlConfig = MySQLDatabaseConfig(
-        hostname: "$DATABASE_HOSTNAME",
-        username: "$DATABASE_USER",
-        password: "$DATABASE_PASSWORD",
-        database: "$DATABASE_DB"
+        hostname: Environment.get("DATABASE_HOSTNAME") ?? "localhost",
+        username: Environment.get("DATABASE_USER") ?? "root",
+        password: Environment.get("DATABASE_PASSWORD") ?? "root",
+        database: Environment.get("DATABASE_DB") ?? "eventyr"
     )
     services.register(mysqlConfig)
 
