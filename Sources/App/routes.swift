@@ -9,4 +9,6 @@ public func routes(_ router: Router) throws {
     let zonesController = ZonesController()
     try router.register(collection: zonesController)
     
+    let arObjectsController = ARObjectsController()
+    
 }
