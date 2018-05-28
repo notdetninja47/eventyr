@@ -7,12 +7,17 @@ final class Zone: SQLiteModel  {
     var id: Int?
     var placeId: Place.ID
     var name: String
+    var sceneFileUrl: String
+    var qrCodeUrl: String
     
-    init(id: Int? = nil, name: String, placeId: Place.ID) {
+    init(id: Int? = nil, name: String, placeId: Place.ID, sceneFileUrl: String, qrCodeUrl: String) {
         self.id = id
         self.name = name
         self.placeId = placeId
+        self.sceneFileUrl = sceneFileUrl
+        self.qrCodeUrl = qrCodeUrl
     }
+    
 }
 
 /// Allows `Todo` to be used as a dynamic migration.

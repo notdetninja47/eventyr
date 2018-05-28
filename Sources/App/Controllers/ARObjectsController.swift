@@ -39,7 +39,7 @@ class ARObjectsController: RouteCollection {
             
             arObject.parentObjectId = updatedARObject.parentObjectId
             
-            arObject.contentURL     = updatedARObject.contentURL
+            arObject.contentUrl     = updatedARObject.contentUrl
             arObject.urlToOpen      = updatedARObject.urlToOpen
             
             return arObject.save(on: req)

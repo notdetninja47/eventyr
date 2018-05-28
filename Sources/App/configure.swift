@@ -30,6 +30,7 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     var migrations = MigrationConfig()
     migrations.add(model: Place.self, database: .sqlite)
     migrations.add(model: Zone.self, database: .sqlite)
+    migrations.add(model: ARObject.self, database: .sqlite)
     services.register(migrations)
 
 }

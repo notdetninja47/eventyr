@@ -9,7 +9,7 @@ final class Place: SQLiteModel  {
     var adress: String?
     var description: String?
 
-    init(id: Int? = nil, name: String) {
+    init(id: Int? = nil, name: String, adress: String? = nil, description: String? = nil) {
         self.id = id
         self.name = name
     }
