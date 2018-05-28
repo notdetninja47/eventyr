@@ -1,8 +1,8 @@
-import FluentSQLite
+import FluentMySQL
 import Vapor
 
 /// A single entry of a Todo list.
-final class Zone: SQLiteModel  {
+final class Zone: MySQLModel  {
     
     var id: Int?
     var placeId: Place.ID

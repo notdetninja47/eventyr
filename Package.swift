@@ -4,14 +4,19 @@ import PackageDescription
 let package = Package(
     name: "HelloVapor",
     dependencies: [
-        // 💧 A server-side Swift web framework.
+        
+        
+        // Vapor
         .package(url: "https://github.com/vapor/vapor.git", from: "3.0.0"),
 
-        // 🔵 Swift ORM (queries, models, relations, etc) built on SQLite 3.
-        .package(url: "https://github.com/vapor/fluent-sqlite.git", from: "3.0.0-rc.2")
+        // ORM
+        .package(url: "https://github.com/vapor/fluent-mysql.git", from: "3.0.0-rc"),
+        
+        // Authentication
+        .package(url: "https://github.com/vapor/auth.git", from: "2.0.0-rc")
     ],
     targets: [
-        .target(name: "App", dependencies: ["FluentSQLite", "Vapor"]),
+        .target(name: "App", dependencies: ["FluentMySQL", "Vapor", "Authentication"]),
         .target(name: "Run", dependencies: ["App"]),
         .testTarget(name: "AppTests", dependencies: ["App"])
     ]

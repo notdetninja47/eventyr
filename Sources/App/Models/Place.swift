@@ -1,17 +1,20 @@
-import FluentSQLite
+import FluentMySQL
 import Vapor
 
 /// A single entry of a Todo list.
-final class Place: SQLiteModel  {
+final class Place: MySQLModel  {
 
     var id: Int?
     var name: String
     var adress: String?
     var description: String?
-
-    init(id: Int? = nil, name: String, adress: String? = nil, description: String? = nil) {
-        self.id = id
+    var userId: User.ID
+    
+    init(id: Int? = nil, name: String, adress: String? = nil, description: String? = nil, userId: User.ID) {
         self.name = name
+        self.adress = adress
+        self.description = description
+        self.userId = userId
     }
 }
 
