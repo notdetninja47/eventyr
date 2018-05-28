@@ -1,4 +1,4 @@
-import FluentSQLite
+import FluentMySQL
 import Vapor
 
 /// A single entry of a Todo list.

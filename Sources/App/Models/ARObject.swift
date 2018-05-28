@@ -1,4 +1,4 @@
-import FluentSQLite
+import FluentMySQL
 import Vapor
 
 /// A single entry of a Todo list.
@@ -17,8 +17,11 @@ final class ARObject: SQLiteModel  {
     var holderNodeName: String
     var typeNumber: Int
     var parentObjectId: ARObject.ID?
+    
     var contentURL: String
+    
     var urlToOpen: String?
+    
     
     
     init(id: Int? = nil, name: String,
