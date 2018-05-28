@@ -1,6 +1,7 @@
 import Foundation
 import FluentMySQL
 import Vapor
+import Authentication
 
 final class User: Codable {
   var id: UUID?
@@ -38,4 +39,13 @@ extension User {
   var places: Children<User, Place> {
     return children(\.userId)
   }
+}
+
+extension User: BasicAuthenticatable {
+    static let usernameKey: UsernameKey = \User.username
+    static let passwordKey: PasswordKey = \User.password
+}
+
+extension User: TokenAuthenticatable {
+    typealias TokenType = Token
 }
